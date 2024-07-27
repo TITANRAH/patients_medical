@@ -1,0 +1,120 @@
+instalar talwind merge 
+y clsx
+npm i clsx tailwind-merge
+
+crear eñ archivo lib/utils.ts y copiar el codigo que esta en el
+
+
+2. crear el arhcivo de clases en global .css
+3. crear archivo de tailwind.config.ts y copiar la config
+4. instalar  npm i tailwindcss-animate
+5. instalar shadcn pero borrara lo hecho en tailwindconfig global css y utlis, volver atras o instalar 
+primero shadcn antes de los pasos anteriores
+6. instalar tema dark por que la app etara en modo dark npm install next-themes
+7. crear archivo en components theme-provider y poner el codigo que esta puesto fue sacado de la doc de shad cn pestala darkmode
+8. encerrar la app en ThemeProvider en layout principal
+9. instalar form npx shadcn-ui@latest add form
+10. instalar react hook form y zod npm i react-hook-form zod
+11. formulario de PatientForm totalmente guiado por la documentacion de shadcn form
+12. npm i react-phone-number-input
+
+13. npm install node-appwrite
+14. instalar componentes de shadcn
+15. npm i react-datepicker --save https://www.npmjs.com/package/react-datepicker
+16. npm i react-dropzone https://react-dropzone.js.org/
+
+17. npx shadcn-ui@latest add alert-dialog
+
+18. para tabla npm install npx shadcn-ui@latest add table y @tanstack/react-table y copiar codigos 
+como se ha copiado en componente columns y componente datatable.tsx
+
+y en admin el get
+
+async function getData(): Promise<Payment[]> {
+  // Fetch data from your API here.
+  return [
+    {
+      id: "728ed52f",
+      amount: 100,
+      status: "pending",
+      email: "m@example.com",
+    },
+    // ...
+  ]
+}
+
+luego en columns 
+
+ header: () => <div className="text-right">Amount</div>,
+    cell: ({ row }) => {
+      const amount = parseFloat(row.getValue("amount"));
+      const formatted = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+      }).format(amount);
+
+      return <div className="text-right font-medium">{formatted}</div>;
+    },
+
+agregar este otro objeto 
+
+
+    id: "actions",
+    cell: ({ row }) => {
+      const payment = row.original
+ 
+      return (
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="ghost" className="h-8 w-8 p-0">
+              <span className="sr-only">Open menu</span>
+              <MoreHorizontal className="h-4 w-4" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuLabel>Actions</DropdownMenuLabel>
+            <DropdownMenuItem
+              onClick={() => navigator.clipboard.writeText(payment.id)}
+            >
+              Copy payment ID
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>View customer</DropdownMenuItem>
+            <DropdownMenuItem>View payment details</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      )
+    },
+
+    instalar npx shadcn-ui@latest add dropdown-menu
+
+    en const table getPaginationRowModel: getPaginationRowModel(), 
+    y llamar en el import getPaginationRowModel
+
+    volver a datatable y ppner 
+
+     <div className="flex items-center justify-end space-x-2 py-4">
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => table.previousPage()}
+          disabled={!table.getCanPreviousPage()}
+        >
+          Previous
+        </Button>
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => table.nextPage()}
+          disabled={!table.getCanNextPage()}
+        >
+          Next
+        </Button>
+      </div>
+
+      dialog npx shadcn-ui@latest add dialog 
+
+sentry
+      https://sentry.io/welcome/?utm_source=google&utm_medium=cpc&utm_id=%7B20403208976%7D&utm_campaign=Google_Search_Brand_SentryKW_ROW_Alpha&utm_content=g&utm_term=sentry&gad_source=1&gclid=Cj0KCQjwtZK1BhDuARIsAAy2VzvVcaTV6mguUFsZMmNA05ud1JIav2Xhigce0TqN8Zbj39KrgWGaVxMaAqLTEALw_wcB
+ 
+instalar sentry npx @sentry/wizard@latest -i nextjs
